@@ -9,7 +9,7 @@ namespace Com.IsartDigital.ProjectName.Managers
 	{
 		[Signal] public delegate void ManagerReady();
 
-		static private Manager instance;
+		static private Manager mainManagerInstance;
 		protected Main gameContext;
 		protected RandomNumberGenerator rand;
 
@@ -19,8 +19,8 @@ namespace Com.IsartDigital.ProjectName.Managers
 
 		static public Manager GetInstance()
 		{
-			if (instance == null) instance = new Manager();
-			return instance;
+			if (mainManagerInstance == null) mainManagerInstance = new Manager();
+			return mainManagerInstance;
 		}
 
 		protected Manager() : base()
@@ -49,12 +49,12 @@ namespace Com.IsartDigital.ProjectName.Managers
 
 		public virtual void Init(PackedScene pScene, Main pGameContext) { }
 
-		public virtual T CreateOne<T>()
+		public virtual T CreateObject<T>()
 		{
 			return (T)new object();
 		}
 
-		public virtual Node CreateOne()
+		public virtual Node CreateObject()
 		{
 			return new Node();
 		}
@@ -63,7 +63,7 @@ namespace Com.IsartDigital.ProjectName.Managers
 		{
 			for (int i = 0; i < pNumber; i++)
 			{
-				CreateOne();
+				CreateObject();
 			}
 		}
 

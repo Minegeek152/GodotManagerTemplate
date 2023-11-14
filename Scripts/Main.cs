@@ -9,5 +9,11 @@ namespace Com.IsartDigital.ProjectName
         {
 
         }
-    }
+
+        public void GameIsReady()
+        {
+
+        }
+    }   
+    
 }
